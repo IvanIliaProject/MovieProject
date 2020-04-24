@@ -7,8 +7,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <children>
-      <JFXTextField layoutX="209.0" layoutY="104.0" promptText="Enter your email:" />
-      <JFXPasswordField layoutX="209.0" layoutY="200.0" promptText="Enter your password:" />
-      <JFXButton layoutX="207.0" layoutY="273.0" prefHeight="31.0" prefWidth="169.0" text="Sign in" />
+      <JFXTextField id="email" fx:id="email" layoutX="209.0" layoutY="104.0" promptText="Enter your email:" />
+      <JFXPasswordField id="password" fx:id="password" layoutX="209.0" layoutY="200.0" promptText="Enter your password:" />
+      <JFXButton id="login-button" fx:id="login" layoutX="207.0" layoutY="273.0" onAction="#login" prefHeight="31.0" prefWidth="169.0" text="Sign in" />
    </children>
 </AnchorPane>
