@@ -1,0 +1,45 @@
+#header{
+    -fx-background-color: black;
+}
+#background{
+   -fx-background-image: url('Kino-Arena-PREMIUM-Zapad-1.jpg');
+    -fx-background-size: cover;
+}
+#footer{
+    -fx-background-color: black;
+}
+#name{
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+}
+#email{
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+}
+#password{
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+}
+#confirm-password{
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+}
+#register-form{
+   -fx-background-color: black;
+    -fx-background-size: cover;
+
+}
+#card-number{
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+}
+#phone{
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+}

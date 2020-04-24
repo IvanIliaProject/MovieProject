@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchor" prefHeight="445.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterController">
+   <children>
+      <AnchorPane id="background" prefHeight="445.0" prefWidth="728.0" stylesheets="@../css/style.css">
+         <children>
+            <AnchorPane id="register-form" layoutX="133.0" layoutY="79.0" opacity="0.71" prefHeight="288.0" prefWidth="476.0">
+               <children>
+                  <JFXTextField id="name" fx:id="name" layoutX="29.0" layoutY="22.0" promptText="Enter your name:" />
+                  <JFXTextField id="email" fx:id="email" layoutX="246.0" layoutY="22.0" promptText="Enter your email:" />
+                  <JFXButton id="register" fx:id="registerButton" layoutX="125.0" layoutY="230.0" onAction="#register" prefHeight="35.0" prefWidth="226.0" style="-fx-border-color: #ccc; -fx-border-radius: 5px;" text="Register" textFill="#fcfafa">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font></JFXButton>
+                  <JFXPasswordField id="password" fx:id="password" layoutX="29.0" layoutY="98.0" promptText="Enter your password:" />
+                  <JFXPasswordField id="confirm-password" fx:id="confirmPassword" layoutX="29.0" layoutY="169.0" promptText="Confirm your password:" />
+                  <JFXTextField id="phone" fx:id="phone" layoutX="246.0" layoutY="98.0" promptText="Enter your phone:" />
+                  <JFXTextField id="card-number" fx:id="card" layoutX="246.0" layoutY="169.0" promptText="Enter your card-number:" />
+               </children>
+            </AnchorPane>
+            <AnchorPane id="footer" layoutX="-3.0" layoutY="382.0" opacity="0.95" prefHeight="63.0" prefWidth="734.0" />
+            <AnchorPane id="header" opacity="0.95" prefHeight="63.0" prefWidth="731.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
