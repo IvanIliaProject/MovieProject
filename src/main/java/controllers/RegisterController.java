@@ -51,11 +51,10 @@ public class RegisterController {
 
 
         if (UserRepository.users.size() == 0){
-           user.setUserType(UserType.values()[0]);
+           user.setUserType(UserType.ADMIN);
         }else{
-            user.setUserType(UserType.values()[1]);
+            user.setUserType(UserType.USER);
         }
-
 
         if (user.getPassword().equals(confirmPassword1)){
             UserRepository.users.add(user);

@@ -71,6 +71,8 @@ public class User {
         this.card = card;
     }
 
+    @Enumerated(EnumType.STRING)
+    @Column
     public UserType getUserType() {
         return userType;
     }
