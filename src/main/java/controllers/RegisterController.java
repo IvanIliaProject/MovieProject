@@ -1,16 +1,22 @@
 package controllers;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import domain.entities.User;
 import domain.entities.UserType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import repositories.UserRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.io.IOException;
 
 public class RegisterController {
 
@@ -26,8 +32,10 @@ public class RegisterController {
     public JFXTextField phone;
     @FXML
     public JFXTextField card;
+    @FXML
+    public JFXButton registerButton;
 
-    public void register(ActionEvent actionEvent) {
+    public void register(ActionEvent actionEvent) throws IOException {
 
         String name1 = name.getText();
         String email1 = email.getText();
@@ -49,20 +57,26 @@ public class RegisterController {
         user.setCard(card1);
 
 
-
-        if (UserRepository.users.size() == 0){
-           user.setUserType(UserType.ADMIN);
+        if (UserRepository.findAll().size() == 0){
+            user.setUserType(UserType.ADMIN);
         }else{
             user.setUserType(UserType.USER);
         }
 
         if (user.getPassword().equals(confirmPassword1)){
-            UserRepository.users.add(user);
             entityManager.getTransaction().begin();
             entityManager.persist(user);
             entityManager.getTransaction().commit();
         }
+        loginWindow();
+    }
 
-
+    private void loginWindow() throws IOException {
+        registerButton.getScene().getWindow().hide();
+        Stage login = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+        Scene scene = new Scene(root);
+        login.setScene(scene);
+        login.show();
     }
 }
