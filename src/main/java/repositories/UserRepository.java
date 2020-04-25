@@ -24,7 +24,8 @@ public class UserRepository{
     public static User findUser(String email, String password) {
         User user = entityManager.createQuery("select u from users u where u.email = :email and u.password = :password",User.class )
                 .setParameter("email", email)
-                .setParameter("password", password).getSingleResult();
+                .setParameter("password", password)
+                .getSingleResult();
 
         if (user == null){
             return null;

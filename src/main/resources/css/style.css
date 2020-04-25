@@ -11,22 +11,22 @@
 #name{
     -fx-prompt-text-fill: white;
     -fx-text-fill: white;
-    -fx-font-size: 15;
+    -fx-font-size: 16;
 }
 #email{
     -fx-prompt-text-fill: white;
     -fx-text-fill: white;
-    -fx-font-size: 15;
+    -fx-font-size: 16;
 }
 #password{
     -fx-prompt-text-fill: white;
     -fx-text-fill: white;
-    -fx-font-size: 15;
+    -fx-font-size: 16;
 }
 #confirm-password{
     -fx-prompt-text-fill: white;
     -fx-text-fill: white;
-    -fx-font-size: 15;
+    -fx-font-size: 16;
 }
 #register-form{
    -fx-background-color: black;
@@ -36,10 +36,28 @@
 #card-number{
     -fx-prompt-text-fill: white;
     -fx-text-fill: white;
-    -fx-font-size: 15;
+    -fx-font-size: 16;
 }
 #phone{
     -fx-prompt-text-fill: white;
     -fx-text-fill: white;
-    -fx-font-size: 15;
+    -fx-font-size: 16;
+}
+#email-login{
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+}#password-login{
+     -fx-prompt-text-fill: white;
+     -fx-text-fill: white;
+     -fx-font-size: 16;
+ }
+#anchor-data{
+    -fx-background-color: black;
+    -fx-background-size: cover;
+
+}
+#anchor-login{
+    -fx-background-image: url('Kino-Arena-PREMIUM-Zapad-1.jpg');
+    -fx-background-size: cover;
 }

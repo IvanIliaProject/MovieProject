@@ -3,12 +3,28 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+<AnchorPane id="anchor-login" prefHeight="507.0" prefWidth="896.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <children>
-      <JFXTextField id="email" fx:id="email" layoutX="209.0" layoutY="104.0" promptText="Enter your email:" />
-      <JFXPasswordField id="password" fx:id="password" layoutX="209.0" layoutY="200.0" promptText="Enter your password:" />
-      <JFXButton id="login-button" fx:id="login" layoutX="207.0" layoutY="273.0" onAction="#login" prefHeight="31.0" prefWidth="169.0" text="Sign in" />
+      <AnchorPane id="anchor-data" layoutX="304.0" layoutY="57.0" opacity="0.88" prefHeight="394.0" prefWidth="320.0">
+         <children>
+            <JFXTextField id="email-login" fx:id="email" alignment="TOP_CENTER" layoutX="76.0" layoutY="52.0" promptText="Enter your email:" />
+            <JFXPasswordField id="password-login" fx:id="password" alignment="TOP_CENTER" layoutX="76.0" layoutY="144.0" promptText="Enter your password:" />
+            <Label id="label" fx:id="label" layoutX="80.0" layoutY="205.0" text="Incorrect email/password!" textFill="#c91313" visible="false" />
+            <JFXButton id="login-button" fx:id="login" layoutX="81.0" layoutY="249.0" onAction="#login" prefHeight="31.0" prefWidth="169.0" style="-fx-background-color: #c91313;" text="Sign in" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font></JFXButton>
+            <Line endX="147.0" layoutX="161.0" layoutY="303.0" startX="-149.0" stroke="WHITE" />
+            <JFXButton id="register-login" fx:id="register" layoutX="83.0" layoutY="331.0" onAction="#registerBack" prefHeight="31.0" prefWidth="169.0" style="-fx-background-color: #c91313;" text="Register" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font></JFXButton>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
