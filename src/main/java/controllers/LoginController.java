@@ -24,7 +24,7 @@ import repositories.UserRepository;
 
 public class LoginController {
 
-    public static List<User> loggedUsers = new ArrayList<>();
+   public static User user;
 
     public JFXTextField email;
     public JFXPasswordField password;
@@ -40,22 +40,14 @@ public class LoginController {
         String email1 = email.getText();
         String pass = password.getText();
 
-
-
         try {
-            User user = UserRepository.findUser(email1, pass);
-
-            if (user.getUserType().equals(UserType.ADMIN)) {
-                    adminWindow();
-                } else {
-                    System.out.println("No");
-                    //userWindow();
-                }
+           user = UserRepository.findUser(email1, pass);
+               homeWindow();
         } catch (NoResultException nre) {
             label.setVisible(true);
         }
     }
-        private void adminWindow() throws IOException {
+        private void homeWindow() throws IOException {
             login.getScene().getWindow().hide();
             Stage login = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/home.fxml"));
@@ -73,14 +65,4 @@ public class LoginController {
         login.setScene(scene);
         login.show();
     }
-
-        private void userWindow() throws IOException {
-            login.getScene().getWindow().hide();
-            Stage login = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/home.fxml"));
-            Scene scene = new Scene(root);
-            login.setScene(scene);
-            login.show();
-        }
-
 }

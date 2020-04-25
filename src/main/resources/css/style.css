@@ -1,12 +1,7 @@
-#header{
-    -fx-background-color: black;
-}
+
 #background{
    -fx-background-image: url('Kino-Arena-PREMIUM-Zapad-1.jpg');
     -fx-background-size: cover;
-}
-#footer{
-    -fx-background-color: black;
 }
 #name{
     -fx-prompt-text-fill: white;
@@ -60,4 +55,34 @@
 #anchor-login{
     -fx-background-image: url('Kino-Arena-PREMIUM-Zapad-1.jpg');
     -fx-background-size: cover;
+}
+#title{
+     -fx-prompt-text-fill: white;
+     -fx-text-fill: white;
+     -fx-font-size: 16;
+ }
+#year{
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+}
+#description{
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+}
+#seats{
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+}
+#image-url{
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+}
+#price{
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 16;
 }

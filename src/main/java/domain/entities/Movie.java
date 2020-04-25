@@ -6,9 +6,11 @@ import javax.persistence.*;
 
 @Entity(name = "movies")
 public class Movie {
+
     private String id;
     private String name;
     private Double price;
+    private String description;
     private int seats;
     private int countSeats;
     private String year;
@@ -90,5 +92,14 @@ public class Movie {
     }
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Column(name = "description")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
