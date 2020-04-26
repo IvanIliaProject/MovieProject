@@ -33,7 +33,7 @@ public class AdminController {
         movie.setPrice(Double.valueOf(price.getText()));
         movie.setImageUrl(imageURL.getText());
         movie.setSeats(Integer.parseInt(seats.getText()));
-
+        movie.setUser(LoginController.userAdmin);
         entityManager.persist(movie);
         entityManager.getTransaction().commit();
 

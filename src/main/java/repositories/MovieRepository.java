@@ -19,4 +19,12 @@ public class MovieRepository {
 
         return allMovies;
     }
+
+    public static Movie findMovieByTitle(String title){
+        Movie movie = entityManager.createQuery("select m from movies m where m.name = :title", Movie.class)
+                .setParameter("title", title)
+                .getSingleResult();
+
+        return movie;
+    }
 }
