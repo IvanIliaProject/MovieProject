@@ -32,6 +32,7 @@ import java.util.List;
 
 public class HomeController {
 
+    public static Movie movie;
 
     public JFXButton admin;
 
@@ -41,6 +42,7 @@ public class HomeController {
     public TableColumn<Movie, String> yearColumn;
     public ImageView imgView;
     public Label description;
+    public JFXButton buy;
 
     @FXML
     public void initialize() {
@@ -73,11 +75,11 @@ public class HomeController {
 
                     String title = val.toString();
 
-                    Movie movie = MovieRepository.findMovieByTitle(title);
+                    movie = MovieRepository.findMovieByTitle(title);
                     Image image = new Image(movie.getImageUrl());
                     imgView.setImage(image);
                     description.setText(movie.getDescription());
-                    System.out.println();
+
                 }
             }
         });
@@ -88,6 +90,17 @@ public class HomeController {
         admin.getScene().getWindow().hide();
         Stage login = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/admin-window.fxml"));
+        Scene scene = new Scene(root);
+        login.setScene(scene);
+        login.show();
+
+    }
+
+    public void buyTicket(ActionEvent actionEvent) throws IOException {
+
+        buy.getScene().getWindow();
+        Stage login = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/buy-ticket.fxml"));
         Scene scene = new Scene(root);
         login.setScene(scene);
         login.show();

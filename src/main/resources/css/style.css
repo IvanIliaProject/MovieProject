@@ -112,3 +112,8 @@
     -fx-font-size: 20;
 
 }
+#description{
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
+    -fx-font-size: 14;
+}
