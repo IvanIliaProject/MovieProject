@@ -10,8 +10,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import repositories.UserRepository;
+import validations.Validation;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -20,29 +23,30 @@ import java.io.IOException;
 
 public class RegisterController {
 
-    @FXML
-    public JFXPasswordField password;
+
     @FXML
     public JFXTextField name;
     @FXML
     public JFXTextField email;
     @FXML
-    public JFXPasswordField confirmPassword;
-    @FXML
     public JFXTextField phone;
     @FXML
-    public JFXTextField card;
-    @FXML
-    public JFXButton registerButton;
+    public Button registerButton;
+    public Label emailLabel;
+    public Label passwordLabel;
+    public Label confirmLabel;
+    public JFXPasswordField pass;
+    public JFXPasswordField confirmPass;
+    public Label nameLabel;
+
 
     public void register(ActionEvent actionEvent) throws IOException {
 
         String name1 = name.getText();
         String email1 = email.getText();
-        String password1 = password.getText();
-        String confirmPassword1 = confirmPassword.getText();
+        String password1 = pass.getText();
+        String confirmPassword1 = confirmPass.getText();
         String phone1 = phone.getText();
-        String card1 = card.getText();
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Persistence");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -52,23 +56,49 @@ public class RegisterController {
 
         user.setName(name1);
         user.setEmail(email1);
+
         user.setPassword(password1);
         user.setPhone(phone1);
-        user.setCard(card1);
 
 
-        if (UserRepository.findAll().size() == 0){
+        if (UserRepository.findAll().size() == 0) {
             user.setUserType(UserType.ADMIN);
-        }else{
+        } else {
             user.setUserType(UserType.USER);
         }
 
-        if (user.getPassword().equals(confirmPassword1)){
+        if (user.getName().length() < 2 || !Validation.validEmail(user.getEmail()) || !Validation.isValidPassword(user.getPassword())
+                || !user.getPassword().equals(confirmPassword1)) {
+
+            if (user.getName().length() < 2){
+                nameLabel.setVisible(true);
+            }else{
+                nameLabel.setVisible(false);
+            }
+
+            if (!Validation.validEmail(user.getEmail())) {
+                emailLabel.setVisible(true);
+            }else{
+                emailLabel.setVisible(false);
+            }
+            if (!Validation.isValidPassword(user.getPassword())) {
+                passwordLabel.setVisible(true);
+            }else{
+                passwordLabel.setVisible(false);
+            }
+            if (!user.getPassword().equals(confirmPassword1)) {
+                confirmLabel.setVisible(true);
+            }else{
+                confirmLabel.setVisible(false);
+            }
+        }else{
             entityManager.getTransaction().begin();
             entityManager.persist(user);
             entityManager.getTransaction().commit();
+            loginWindow();
         }
-        loginWindow();
+
+
     }
 
     private void loginWindow() throws IOException {

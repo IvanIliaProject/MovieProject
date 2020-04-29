@@ -3,6 +3,7 @@ package domain.entities;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity(name = "movies")
 public class Movie {
@@ -13,8 +14,9 @@ public class Movie {
     private String description;
     private int seats;
     private int countSeats;
-    private String year;
+    private Date date;
     private String imageUrl;
+    private String genre;
     private User user;
 
     public Movie() {
@@ -67,13 +69,22 @@ public class Movie {
         this.countSeats = countSeats;
     }
 
-    @Column(name = "movie_year")
-    public String getYear() {
-        return year;
+    @Column(name = "movie_genre")
+    public String getGenre() {
+        return genre;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    @Column(name = "movie_year")
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Column(name = "movie_image")

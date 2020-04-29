@@ -29,7 +29,7 @@ public class User {
         this.id = id;
     }
 
-    @Column(name = "user_name")
+    @Column(name = "user_name", nullable = false)
     public String getName() {
         return name;
     }
@@ -37,12 +37,12 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-    @Column(name = "user_phone")
+    @Column(name = "user_phone", nullable = false)
     public String getPhone() {
         return phone;
     }
 
-    @Column(name = "user_email")
+    @Column(name = "user_email", unique = true, nullable = false)
     public String getEmail() {
         return email;
     }
@@ -50,7 +50,7 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-    @Column(name = "user_password")
+    @Column(name = "user_password", nullable = false)
     public String getPassword() {
         return password;
     }

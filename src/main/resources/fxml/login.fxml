@@ -8,6 +8,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
 <AnchorPane id="anchor-login" prefHeight="507.0" prefWidth="896.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <children>
       <AnchorPane id="anchor-data" layoutX="304.0" layoutY="57.0" opacity="0.88" prefHeight="394.0" prefWidth="320.0">

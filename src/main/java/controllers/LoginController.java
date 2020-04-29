@@ -31,6 +31,7 @@ public class LoginController {
     public JFXPasswordField password;
     public JFXButton login;
     public Label label;
+    public JFXButton register;
 
     public void login(ActionEvent actionEvent) throws IOException {
 
@@ -65,7 +66,7 @@ public class LoginController {
 
     public void registerBack(ActionEvent actionEvent) throws IOException {
 
-        login.getScene().getWindow().hide();
+        register.getScene().getWindow().hide();
         Stage login = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/register.fxml"));
         Scene scene = new Scene(root);
