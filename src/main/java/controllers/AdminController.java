@@ -13,7 +13,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class AdminController {
 
@@ -47,6 +46,8 @@ public class AdminController {
         movie.setImageUrl(imageURL.getText());
         movie.setSeats(Integer.parseInt(seats.getText()));
         movie.setUser(LoginController.userAdmin);
+
+
 
         if (movie.getName().length() < 1 || !Validation.validPrice(movie.getPrice()) || !Validation.isValidSeats(movie.getSeats())){
 

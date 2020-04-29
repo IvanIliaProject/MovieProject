@@ -36,4 +36,18 @@ public class MovieRepository {
                 .getResultList();
         return movie;
     }
+    public static List<Movie> findByPrice(Double price){
+        List<Movie> movieByPrice = entityManager.createQuery("select m from movies m where m.price = :price", Movie.class)
+                .setParameter("price", price)
+                .getResultList();
+
+        return movieByPrice;
+    }
+    public static List<Movie> findByGenre(String genre){
+        List<Movie> movieByGenre = entityManager.createQuery("select m from movies m where m.genre = :genre", Movie.class)
+                .setParameter("genre", genre)
+                .getResultList();
+
+        return movieByGenre;
+    }
 }

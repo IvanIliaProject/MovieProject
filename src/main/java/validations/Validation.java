@@ -2,7 +2,8 @@ package validations;
 
 import java.util.regex.Pattern;
 
-public class Validation {
+public class Validation{
+
 
     public static boolean validPrice(Double price){
         String priceRegex = "^\\d+(.\\d{1,2})?$";

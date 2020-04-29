@@ -1,6 +1,7 @@
 package controllers;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import domain.entities.Movie;
@@ -54,10 +55,13 @@ public class HomeController {
     public DatePicker to;
     public Button search;
     public JFXTextField searchField;
+    public JFXComboBox comboBox;
+    public Spinner searchByPrice;
+    public JFXComboBox genreBox;
 
 
     @FXML
-    public void initialize() {
+    private void initialize() {
 
         if (LoginController.user.getUserType().equals(UserType.ADMIN)) {
             admin.setVisible(true);
@@ -74,6 +78,14 @@ public class HomeController {
 
         tableView.getItems().addAll(movies);
 
+        comboBox.getItems().addAll("Title", "Date", "Price");
+
+        genreBox.getItems().addAll("Romantic", "Action", "Comedy", "Horror", "Adventure",
+                "Crime", "Fantasy", "Animation");
+
+        searchByPrice.setValueFactory(
+                new SpinnerValueFactory.DoubleSpinnerValueFactory(1, 30)
+        );
 
         tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
@@ -119,61 +131,91 @@ public class HomeController {
 
     }
 
-    public void searchByDate(ActionEvent actionEvent) {
+    public void search(ActionEvent actionEvent) {
+        String chosenItem = comboBox.getSelectionModel().getSelectedItem().toString();
+        if (chosenItem.equals("Title")) {
+            searchByTitle();
+        } else if (chosenItem.equals("Date")) {
+            searchByDate();
+        }else if(chosenItem.equals("Price")){
+            searchByPrice();
+        }else{
+            searchByGenre();
+        }
+    }
 
+    public void chosenAction(ActionEvent actionEvent) {
+        String combo = comboBox.getSelectionModel().getSelectedItem().toString();
+        if (combo.equals("Title")) {
+            searchField.setVisible(true);
+            from.setVisible(false);
+            to.setVisible(false);
+            searchByPrice.setVisible(false);
+        } else if (combo.equals("Date")) {
+            searchField.setVisible(false);
+            searchByPrice.setVisible(false);
+            from.setVisible(true);
+            to.setVisible(true);
+        } else if (combo.equals("Price")){
+            searchField.setVisible(false);
+            from.setVisible(false);
+            to.setVisible(false);
+            searchByPrice.setVisible(true);
+        }else{
+            searchField.setVisible(false);
+            from.setVisible(false);
+            to.setVisible(false);
+            searchByPrice.setVisible(false);
+            genreBox.setVisible(true);
+        }
+    }
 
+    private void searchByDate() {
+        from.setVisible(true);
+        to.setVisible(true);
         LocalDate fromDate = from.getValue();
         Date from = Date.valueOf(fromDate);
 
         LocalDate toDate = to.getValue();
         Date to = Date.valueOf(toDate);
 
+        tableView.refresh();
+        List<Movie> returned = tableView.getItems();
+        tableView.getItems().removeAll(returned);
+        tableView.refresh();
         List<Movie> findByDate = MovieRepository.findByDate(from, to);
-
-        FilteredList<Movie> filteredList = new FilteredList<>(movies, m -> true);
-        filteredList.setPredicate(movie1 -> {
-
-            Date date = null;
-            for (Movie movieByDate : findByDate) {
-                date = movieByDate.getDate();
-            }
-            if (date != null) {
-                if (date.compareTo(movie1.getDate()) == 0) {
-                    return true;
-                }
-            }
-            return false;
-
-        });
-        SortedList sortedList = new SortedList(filteredList);
-        sortedList.comparatorProperty().bind(tableView.comparatorProperty());
-
-        tableView.setItems(sortedList);
+        tableView.getItems().addAll((findByDate));
     }
-   public void searchByTitle(KeyEvent keyEvent) {
 
-       /* //Movie movie1 = MovieRepository.findMovieByTitle();
-
-        FilteredList<Movie> filterMovie = new FilteredList<>(movies, m-> true);
-        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filterMovie.setPredicate((Predicate<? super Movie>)(Movie movie1)-> {
-               movie1 = MovieRepository.findMovieByTitle(newValue);
-              //  String lowerCase = movieTitle.getName().toLowerCase();
-                if (newValue.isEmpty()) {
-                    return true;
-                }else if (movie1.getName().contains(newValue)) {
-                    return true;
-                } else {
-                    return false;
-                }
-            });
-        });
-        SortedList<Movie> sortedList = new SortedList<>(filterMovie);
-        sortedList.comparatorProperty().bind(tableView.comparatorProperty());
-        tableView.setItems(sortedList);
-
-
+    private void searchByTitle() {
+        String title = searchField.getText();
+        searchField.setVisible(true);
+        List<Movie> returned = tableView.getItems();
+        tableView.getItems().removeAll(returned);
+        tableView.refresh();
+        Movie findByTitle = MovieRepository.findMovieByTitle(title);
+        tableView.getItems().addAll((findByTitle));
     }
-*/
-   }
+
+    private void searchByGenre(){
+        String genre = genreBox.getSelectionModel().getSelectedItem().toString();
+        genreBox.setVisible(true);
+
+        List<Movie> returned = tableView.getItems();
+        tableView.getItems().removeAll(returned);
+        tableView.refresh();
+        List<Movie> findByGenre = MovieRepository.findByGenre(genre);
+        tableView.getItems().addAll((findByGenre));
+    }
+
+    private void searchByPrice() {
+        searchByPrice.setVisible(true);
+
+        double spinnerValue = (double) searchByPrice.getValue();
+        List<Movie> returned = tableView.getItems();
+        tableView.getItems().removeAll(returned);
+        tableView.refresh();
+        List<Movie> findByPrice = MovieRepository.findByPrice(spinnerValue);
+        tableView.getItems().addAll((findByPrice));
+    }
 }
