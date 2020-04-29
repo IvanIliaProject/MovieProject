@@ -18,6 +18,11 @@
     -fx-text-fill: white;
     -fx-font-size: 16;
 }
+#description{
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
+    -fx-font-size: 16;
+}
 #confirm-password{
     -fx-prompt-text-fill: white;
     -fx-text-fill: white;

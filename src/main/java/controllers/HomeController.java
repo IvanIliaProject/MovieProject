@@ -34,8 +34,12 @@ import repositories.UserRepository;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class HomeController {
 
@@ -58,6 +62,7 @@ public class HomeController {
     public JFXComboBox comboBox;
     public Spinner searchByPrice;
     public JFXComboBox genreBox;
+    public JFXButton top;
 
 
     @FXML
@@ -217,5 +222,15 @@ public class HomeController {
         tableView.refresh();
         List<Movie> findByPrice = MovieRepository.findByPrice(spinnerValue);
         tableView.getItems().addAll((findByPrice));
+    }
+
+    public void mostViewedMovies(ActionEvent actionEvent) {
+        List<Movie> sortedList = movies.stream()
+                .sorted(Comparator.comparingInt(Movie::getCountSeats).reversed())
+                .collect(Collectors.toList());
+        List<Movie> returned = tableView.getItems();
+        tableView.getItems().removeAll(returned);
+        tableView.refresh();
+        tableView.getItems().addAll((sortedList));
     }
 }

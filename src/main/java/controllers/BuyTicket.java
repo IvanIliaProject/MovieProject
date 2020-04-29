@@ -43,7 +43,7 @@ public class BuyTicket {
 
 
 
-        movie.setSeats(movie.getSeats() - getSpinnerValue);
+        movie.setCountSeats(movie.getCountSeats() + getSpinnerValue);
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Persistence");
         EntityManager entityManager = emf.createEntityManager();

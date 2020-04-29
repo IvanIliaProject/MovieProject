@@ -1,6 +1,7 @@
 package repositories;
 
 import domain.entities.Movie;
+import javafx.collections.ObservableList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -30,10 +31,9 @@ public class MovieRepository {
     }
 
     public static List<Movie> findByDate(Date from, Date to){
-        List<Movie> movie = entityManager.createQuery("select m from movies m where m.date between :from and :to", Movie.class)
+        List<Movie> movie =  entityManager.createQuery("select m from movies m where m.date between :from and :to", Movie.class)
                 .setParameter("from", from)
-                .setParameter("to", to)
-                .getResultList();
+                .setParameter("to", to).getResultList();
         return movie;
     }
     public static List<Movie> findByPrice(Double price){

@@ -11,7 +11,7 @@ public class User {
     private String email;
     private String password;
     private String phone;
-    private String card;
+
     private UserType userType;
 
     public User() {
@@ -61,14 +61,6 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-    @Column(name = "user_card")
-    public String getCard() {
-        return card;
-    }
-
-    public void setCard(String card) {
-        this.card = card;
     }
 
     @Enumerated(EnumType.STRING)

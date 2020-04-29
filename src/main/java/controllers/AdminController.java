@@ -45,6 +45,7 @@ public class AdminController {
         movie.setPrice(Double.valueOf(price.getText()));
         movie.setImageUrl(imageURL.getText());
         movie.setSeats(Integer.parseInt(seats.getText()));
+        movie.setCountSeats(0);
         movie.setUser(LoginController.userAdmin);
 
 

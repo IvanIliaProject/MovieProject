@@ -6,7 +6,7 @@
     <persistence-unit name="Persistence" transaction-type="RESOURCE_LOCAL">
         <properties>
             <!-- database connection -->
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/movies_db?useSSL=false&amp;createDatabaseIfNotExist=TRUE"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/movies_db?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
             <property name="hibernate.connection.username" value="root" />
             <property name="hibernate.connection.password" value="root" />
