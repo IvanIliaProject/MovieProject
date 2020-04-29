@@ -5,6 +5,7 @@ import domain.entities.Movie;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.sql.Date;
 import java.util.List;
 
 public class MovieRepository {
@@ -25,6 +26,14 @@ public class MovieRepository {
                 .setParameter("title", title)
                 .getSingleResult();
 
+        return movie;
+    }
+
+    public static List<Movie> findByDate(Date from, Date to){
+        List<Movie> movie = entityManager.createQuery("select m from movies m where m.date between :from and :to", Movie.class)
+                .setParameter("from", from)
+                .setParameter("to", to)
+                .getResultList();
         return movie;
     }
 }
