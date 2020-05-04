@@ -12,6 +12,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import repositories.UserRepository;
 import validations.Validation;
@@ -25,19 +29,32 @@ public class RegisterController {
 
 
     @FXML
-    public JFXTextField name;
+    public TextField name;
     @FXML
-    public JFXTextField email;
+    public TextField email;
     @FXML
-    public JFXTextField phone;
+    public TextField phone;
     @FXML
     public Button registerButton;
     public Label emailLabel;
     public Label passwordLabel;
     public Label confirmLabel;
-    public JFXPasswordField pass;
-    public JFXPasswordField confirmPass;
+    public PasswordField pass;
+    public PasswordField confirmPass;
     public Label nameLabel;
+    public ImageView fbIcon;
+    public ImageView twitterIcon;
+    public ImageView googleIcon;
+
+    public void initialize(){
+        Image imageFb = new Image("http://getdrawings.com/free-icon/icon-facebook-png-60.png");
+        Image imageTwitter = new Image("https://pluspng.com/img-png/twitter-png-file-twitter-icon-png-256.png");
+        Image imageGoogle = new Image("https://cdn3.iconfinder.com/data/icons/ultimate-social/150/34_google_plus-512.png");
+
+        fbIcon.setImage(imageFb);
+        twitterIcon.setImage(imageTwitter);
+        googleIcon.setImage(imageGoogle);
+    }
 
 
     public void register(ActionEvent actionEvent) throws IOException {

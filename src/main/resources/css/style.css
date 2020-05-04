@@ -1,21 +1,21 @@
 
 #background{
-   -fx-background-image: url('Kino-Arena-PREMIUM-Zapad-1.jpg');
+   -fx-background-image: url('Kino-Arena-Luxe-Picture-5.jpg');
     -fx-background-size: cover;
 }
 #name{
-    -fx-prompt-text-fill: white;
-    -fx-text-fill: white;
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
     -fx-font-size: 16;
 }
 #email{
-    -fx-prompt-text-fill: white;
-    -fx-text-fill: white;
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
     -fx-font-size: 16;
 }
 #password{
-    -fx-prompt-text-fill: white;
-    -fx-text-fill: white;
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
     -fx-font-size: 16;
 }
 #description{
@@ -24,8 +24,8 @@
     -fx-font-size: 16;
 }
 #confirm-password{
-    -fx-prompt-text-fill: white;
-    -fx-text-fill: white;
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
     -fx-font-size: 16;
 }
 #register-form{
@@ -39,8 +39,8 @@
     -fx-font-size: 16;
 }
 #phone{
-    -fx-prompt-text-fill: white;
-    -fx-text-fill: white;
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
     -fx-font-size: 16;
 }
 #email-login{
@@ -72,9 +72,9 @@
     -fx-font-size: 16;
 }
 #description{
-    -fx-prompt-text-fill: white;
-    -fx-text-fill: white;
-    -fx-font-size: 16;
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
+    -fx-font-size: 10;
 }
 #seats{
     -fx-prompt-text-fill: white;
@@ -92,29 +92,39 @@
     -fx-font-size: 16;
 }
 #tableView{
-    -fx-background-color: black;
-    -fx-border-color: black;
+    -fx-background-color:  dbd5d5;
+    -fx-border-color:  #dbd5d5;
 }
 #titleColumn{
-     -fx-background-color: black;
-    -fx-prompt-text-fill: white;
-    -fx-text-fill: white;
+    -fx-background-color: #dbd5d5;
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
     -fx-font-size: 20;
-    -fx-border-color: black;
+    -fx-border-color:  #dbd5d5;
 }
 #priceColumn{
-    -fx-background-color: black;
-    -fx-border-color: black;
-    -fx-prompt-text-fill: white;
-    -fx-text-fill: white;
+    -fx-background-color: #dbd5d5;
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
     -fx-font-size: 20;
+    -fx-border-color:  #dbd5d5;
 }
 #yearColumn{
-    -fx-border-color: black;
-    -fx-background-color: black;
-    -fx-prompt-text-fill: white;
-    -fx-text-fill: white;
+    -fx-background-color: #dbd5d5;
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
     -fx-font-size: 20;
-
+    -fx-border-color:  #dbd5d5;
+}
+#genreColumn{
+    -fx-background-color: #dbd5d5;
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
+    -fx-font-size: 20;
+    -fx-border-color:  #dbd5d5;
+ }
+#imageAnchor{
+    -fx-background-image: url('search.png');
+    -fx-background-size: cover;
 }
 

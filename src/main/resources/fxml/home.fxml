@@ -1,60 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="background" prefHeight="507.0" prefWidth="896.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+<AnchorPane prefHeight="511.0" prefWidth="830.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
    <children>
-      <JFXButton fx:id="admin" layoutX="698.0" layoutY="109.0" onAction="#adminWindow" text="Admin" textFill="WHITE" />
-      <TableView fx:id="tableView" layoutX="495.0" layoutY="242.0" opacity="0.83" prefHeight="250.0" prefWidth="351.0" style="-fx-background-color: black;" tableMenuButtonVisible="true">
+      <TableView fx:id="tableView" layoutX="1.0" layoutY="222.0" opacity="0.95" prefHeight="322.0" prefWidth="626.0" style="-fx-background-color: white;" tableMenuButtonVisible="true">
         <columns>
-          <TableColumn id="titleColumn" fx:id="titleColumn" prefWidth="145.0" style="-fx-prompt-text-fill: white;" text="Title" />
-          <TableColumn id="priceColumn" fx:id="priceColumn" prefWidth="106.0" text="Price" />
-            <TableColumn id="yearColumn" fx:id="yearColumn" prefWidth="109.0" text="Year" />
+          <TableColumn id="titleColumn" fx:id="titleColumn" prefWidth="163.99998474121094" style="-fx-prompt-text-fill: white;" text="Title" />
+          <TableColumn id="priceColumn" fx:id="priceColumn" prefWidth="168.79998779296875" text="Price" />
+            <TableColumn id="yearColumn" fx:id="yearColumn" prefWidth="109.0" text="Premiere" />
+            <TableColumn id="genreColumn" fx:id="genreColumn" prefWidth="75.0" text="Genre" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <DialogPane fx:id="dialogPane" layoutX="6.0" layoutY="193.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0">
-          <header>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-               <children>
-                  <ImageView fx:id="imgView" fitHeight="198.0" fitWidth="219.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label layoutX="251.0" layoutY="21.0" text="Description:" />
-                  <JFXButton fx:id="buy" layoutX="194.0" layoutY="155.0" onAction="#buyTicket" prefHeight="32.0" prefWidth="124.0" text="Buy a ticket" />
-                  <Label fx:id="description" layoutX="251.0" layoutY="65.0" prefHeight="57.0" prefWidth="132.0" />
-               </children>
-            </AnchorPane>
-          </header>
-          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
-          </content>
-          <expandableContent>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
-          </expandableContent>
-      </DialogPane>
-      <AnchorPane layoutX="-2.0" opacity="0.93" prefHeight="50.0" prefWidth="896.0" style="-fx-background-color: black;">
+      <AnchorPane layoutY="63.0" opacity="0.97" prefHeight="138.0" prefWidth="611.0" style="-fx-border-color: black;">
          <children>
-            <JFXTextField fx:id="searchField" layoutX="294.0" layoutY="13.0" unFocusColor="WHITE" visible="false" />
-            <JFXComboBox fx:id="comboBox" layoutX="159.0" layoutY="12.0" onAction="#chosenAction" prefHeight="26.0" prefWidth="106.0" />
-            <Button fx:id="search" layoutX="90.0" layoutY="16.0" mnemonicParsing="false" onAction="#search" text="Button" />
-            <DatePicker fx:id="from" layoutX="277.0" layoutY="15.0" visible="false" />
-            <DatePicker fx:id="to" layoutX="474.0" layoutY="16.0" prefHeight="13.0" prefWidth="174.0" visible="false" />
-            <Spinner fx:id="searchByPrice" layoutX="287.0" layoutY="16.0" visible="false" />
-            <JFXComboBox fx:id="genreBox" layoutX="287.0" layoutY="12.0" prefHeight="26.0" prefWidth="93.0" visible="false" />
+            <Label layoutX="196.0" layoutY="103.0" text="From:" />
+            <DatePicker fx:id="from" layoutX="227.0" layoutY="99.0" prefHeight="26.0" prefWidth="150.0" />
+            <Label layoutX="402.0" layoutY="103.0" text="To:" />
+            <DatePicker fx:id="to" layoutX="418.0" layoutY="99.0" prefHeight="26.0" prefWidth="149.0" />
+            <JFXComboBox fx:id="comboBox" layoutX="169.0" layoutY="18.0" onAction="#chosenAction" prefHeight="26.0" prefWidth="116.0" unFocusColor="BLACK" />
+            <JFXTextField fx:id="searchField" layoutX="330.0" layoutY="21.0" prefHeight="24.0" prefWidth="124.0" unFocusColor="BLACK" visible="false" />
+            <JFXComboBox fx:id="genreBox" layoutX="324.0" layoutY="21.0" prefHeight="26.0" prefWidth="135.0" unFocusColor="BLACK" visible="false" />
+            <Button fx:id="search" layoutX="22.0" layoutY="18.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="124.0" text="Search by:" />
+            <Button fx:id="searchByDate" layoutX="22.0" layoutY="99.0" mnemonicParsing="false" onAction="#searchByDate" prefHeight="26.0" prefWidth="124.0" text="Search by date:" />
+            <Spinner fx:id="spinnerFrom" layoutX="350.0" layoutY="31.0" prefHeight="26.0" prefWidth="83.0" />
+            <Spinner fx:id="spinnerTo" layoutX="485.0" layoutY="31.0" prefHeight="26.0" prefWidth="83.0" />
+            <Label fx:id="priceFrom" layoutX="316.0" layoutY="39.0" text="From:" />
+            <Label fx:id="priceTo" layoutX="459.0" layoutY="38.0" text="To:" />
          </children>
       </AnchorPane>
-      <JFXButton fx:id="top" layoutX="698.0" layoutY="168.0" onAction="#mostViewedMovies" textFill="WHITE" />
+      <AnchorPane layoutX="631.0" layoutY="39.0" opacity="0.99" prefHeight="503.0" prefWidth="221.0">
+         <children>
+            <ImageView fx:id="imgView" fitHeight="159.0" fitWidth="166.0" layoutX="60.0" layoutY="54.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+            <Line endX="108.5999755859375" endY="-3.0517578125E-5" layoutX="113.0" layoutY="367.0" startX="-113.0" startY="-3.0517578125E-5" />
+            <Label fx:id="movieTitle" alignment="TOP_CENTER" layoutX="27.0" layoutY="14.0" prefHeight="32.0" prefWidth="166.0" text="Label" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="119.0" layoutY="46.0" startX="-113.0" startY="-3.0517578125E-5" />
+            <Label layoutX="74.0" layoutY="242.0" text="Description:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="380.0" prefHeight="20.0" prefWidth="116.0" text="Available tickets:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="ticketsLabel" layoutX="148.0" layoutY="380.0" prefHeight="20.0" prefWidth="16.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Line endX="108.5999755859375" endY="-3.0517578125E-5" layoutX="114.0" layoutY="431.0" startX="-113.0" startY="-3.0517578125E-5" />
+            <Line endX="108.5999755859375" endY="-3.0517578125E-5" layoutX="115.0" layoutY="229.0" startX="-113.0" startY="-3.0517578125E-5" />
+            <Button fx:id="buy" layoutX="53.0" layoutY="450.0" mnemonicParsing="false" onAction="#buyTicket" prefHeight="26.0" prefWidth="97.0" text="Buy a ticket" />
+            <TextArea fx:id="description" editable="false" layoutX="13.0" layoutY="270.0" prefHeight="87.0" prefWidth="200.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="39.0" prefWidth="852.0">
+         <children>
+            <Button fx:id="admin" layoutX="740.0" layoutY="6.0" mnemonicParsing="false" onAction="#adminWindow" prefHeight="26.0" prefWidth="97.0" text="Add a movie" visible="false" />
+            <Button fx:id="signOut" layoutX="22.0" layoutY="6.0" mnemonicParsing="false" onAction="#signOut" prefHeight="26.0" prefWidth="124.0" text="Sign out" />
+            <Button fx:id="delete" layoutX="629.0" layoutY="7.0" mnemonicParsing="false" onAction="#deleteMovie" prefHeight="26.0" prefWidth="98.0" text="Delete a movie" visible="false" />
+            <Button fx:id="top" layoutX="488.0" layoutY="5.0" mnemonicParsing="false" onAction="#mostViewedMovies" prefHeight="32.0" prefWidth="126.0" text="Top movies by views" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

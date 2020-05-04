@@ -1,44 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextArea?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="background" prefHeight="507.0" prefWidth="896.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
+<AnchorPane prefHeight="507.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
    <children>
-      <AnchorPane id="anchor-data" layoutX="181.0" layoutY="64.0" opacity="0.88" prefHeight="402.0" prefWidth="534.0">
-         <children>
-            <JFXTextField id="title" fx:id="title" layoutX="58.0" layoutY="54.0" promptText="Title:" />
-            <JFXTextField id="price" fx:id="price" layoutX="311.0" layoutY="54.0" promptText="Price:" />
-            <JFXTextField id="seats" fx:id="seats" layoutX="58.0" layoutY="144.0" promptText="Seats:" />
-            <JFXTextField id="image-url" fx:id="imageURL" layoutX="311.0" layoutY="144.0" promptText="Image URL:" />
-            <JFXButton fx:id="add" layoutX="57.0" layoutY="335.0" onAction="#addMovie" prefHeight="31.0" prefWidth="182.0" style="-fx-background-color: #c91313;" text="Add a movie" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="backHome" layoutX="311.0" layoutY="335.0" onAction="#backToHome" prefHeight="31.0" prefWidth="182.0" style="-fx-background-color: #c91313;" text="Back to Home" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </JFXButton>
-            <Line endX="229.4000244140625" layoutX="276.0" layoutY="309.0" startX="-244.20001220703125" stroke="WHITE" />
-            <DatePicker fx:id="date" layoutX="50.0" layoutY="250.0" />
-            <Label fx:id="priceLabel" layoutX="301.0" layoutY="102.0" text="The price must contains only numbers" textFill="RED" visible="false" />
-            <JFXTextArea id="description" fx:id="description" layoutX="297.0" layoutY="227.0" prefHeight="71.0" prefWidth="202.0" promptText="Description:" />
-            <Label fx:id="success" layoutX="166.0" layoutY="14.0" text="Successfully added movie." textFill="WHITE" visible="false">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="seatsLabel" layoutX="47.0" layoutY="192.0" text="The seats must be in number format" textFill="RED" visible="false" />
-            <Label fx:id="titleLabel" layoutX="44.0" layoutY="102.0" text="The title needs to include at least one symbol." textFill="#ff0000" visible="false" />
-         </children>
-      </AnchorPane>
+      <TextField fx:id="title" layoutX="213.0" layoutY="70.0" prefHeight="26.0" prefWidth="200.0" />
+      <DatePicker fx:id="date" layoutX="530.0" layoutY="70.0" prefHeight="26.0" prefWidth="210.0" />
+      <TextArea fx:id="description" layoutX="549.0" layoutY="169.0" prefHeight="87.0" prefWidth="200.0" wrapText="true" />
+      <Button fx:id="add" layoutX="238.0" layoutY="435.0" mnemonicParsing="false" onAction="#addMovie" prefHeight="43.0" prefWidth="186.0" text="Add" />
+      <Button fx:id="backHome" layoutX="537.0" layoutY="435.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="43.0" prefWidth="158.0" text="Back to home" />
+      <Label layoutX="380.0" prefHeight="46.0" prefWidth="175.0" text="Add a movie">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Spinner fx:id="price" layoutX="208.0" layoutY="321.0" prefHeight="26.0" prefWidth="210.0" />
+      <TextArea fx:id="imageURL" layoutX="549.0" layoutY="290.0" prefHeight="87.0" prefWidth="200.0" wrapText="true" />
+      <ComboBox fx:id="genre" layoutX="213.0" layoutY="230.0" prefHeight="26.0" prefWidth="200.0" />
+      <Label layoutX="163.0" layoutY="70.0" prefHeight="26.0" prefWidth="48.0" text="Title:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="147.0" layoutY="143.0" prefHeight="26.0" prefWidth="62.0" text="Tickets:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="154.0" layoutY="230.0" prefHeight="26.0" prefWidth="48.0" text="Genre:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="154.0" layoutY="321.0" prefHeight="26.0" prefWidth="48.0" text="Price:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="482.0" layoutY="70.0" prefHeight="26.0" prefWidth="48.0" text="Date:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="463.0" layoutY="199.0" prefHeight="26.0" prefWidth="85.0" text="Description:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="462.0" layoutY="321.0" prefHeight="26.0" prefWidth="86.0" text="ImageURL:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Spinner fx:id="seats" layoutX="213.0" layoutY="143.0" prefHeight="26.0" prefWidth="200.0" />
+      <Line endX="313.199951171875" layoutX="429.0" layoutY="45.0" startX="-278.0" />
+      <Line endX="313.199951171875" layoutX="441.0" layoutY="422.0" startX="-278.0" />
+      <Label layoutX="364.0" layoutY="386.0" text="Successfully added a movie!" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="371.0" layoutY="386.0" text="The movie already added!" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="755.0" layoutY="290.0" prefHeight="87.0" prefWidth="118.0" text="Note:&#10;The movies's picture sholud be&#10;in png format.&#10;" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

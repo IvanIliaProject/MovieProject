@@ -9,7 +9,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import javax.persistence.EntityManagerFactory;
@@ -27,11 +32,25 @@ public class LoginController {
     public static User userAdmin;
     public static User user;
 
-    public JFXTextField email;
-    public JFXPasswordField password;
-    public JFXButton login;
+    public TextField email;
+    public PasswordField password;
+    public Button login;
     public Label label;
-    public JFXButton register;
+    public Button register;
+    public ImageView fbIcon;
+    public ImageView googleIcon;
+    public ImageView twitterIcon;
+
+    public void initialize(){
+        Image imageFb = new Image("http://getdrawings.com/free-icon/icon-facebook-png-60.png");
+        Image imageTwitter = new Image("https://pluspng.com/img-png/twitter-png-file-twitter-icon-png-256.png");
+        Image imageGoogle = new Image("https://cdn3.iconfinder.com/data/icons/ultimate-social/150/34_google_plus-512.png");
+
+        fbIcon.setImage(imageFb);
+        twitterIcon.setImage(imageTwitter);
+        googleIcon.setImage(imageGoogle);
+    }
+
 
     public void login(ActionEvent actionEvent) throws IOException {
 

@@ -36,9 +36,11 @@ public class MovieRepository {
                 .setParameter("to", to).getResultList();
         return movie;
     }
-    public static List<Movie> findByPrice(Double price){
-        List<Movie> movieByPrice = entityManager.createQuery("select m from movies m where m.price = :price", Movie.class)
-                .setParameter("price", price)
+    public static List<Movie> findByPrice(double priceFrom, double priceTo){
+        List<Movie> movieByPrice = entityManager.createQuery("select m from movies m where m.price between" +
+                " :priceFrom and :priceTo", Movie.class)
+                .setParameter("priceFrom", priceFrom)
+                .setParameter("priceTo", priceTo)
                 .getResultList();
 
         return movieByPrice;

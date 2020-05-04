@@ -10,7 +10,7 @@ public class Movie  {
 
     private String id;
     private String name;
-    private Double price;
+    private double price;
     private String description;
     private int seats;
     private int countSeats;
@@ -44,11 +44,11 @@ public class Movie  {
     }
 
     @Column(name = "movie_price")
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
